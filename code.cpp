@@ -1,56 +1,29 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int main(){
-	#ifndef ONLINE_JUDGE
-	freopen("input.txt","r",stdin);
-	freopen("output.txt","w",stdout);
-	#endif
-	//Only logic function 
-class Solution
-{
-    public:
-    void sort012(int arr[], int n)
-    { 
-    int i, cnt0 = 0, cnt1 = 0, cnt2 = 0; 
-  
-    // Count the number of 0s, 1s and 2s in the array 
-    for (i = 0; i < n; i++) { 
-        switch (arr[i]) { 
-        case 0: 
-            cnt0++; 
-            break; 
-        case 1: 
-            cnt1++; 
-            break; 
-        case 2: 
-            cnt2++; 
-            break; 
-        } 
-    } 
-  
-    // Update the array 
-    i = 0; 
-  
-    // Store all the 0s in the beginning 
-    while (cnt0 > 0) { 
-        arr[i++] = 0; 
-        cnt0--; 
-    } 
-  
-    // Then all the 1s 
-    while (cnt1 > 0) { 
-        arr[i++] = 1; 
-        cnt1--; 
-    } 
-  
-    // Finally all the 2s 
-    while (cnt2 > 0) { 
-        arr[i++] = 2; 
-        cnt2--; 
-    } 
+// int main(){
+// 	#ifndef ONLINE_JUDGE
+// 	freopen("input.txt","r",stdin);
+// 	freopen("output.txt","w",stdout);
+// 	#endif
+// 	//Only logic function  
+// }
+//logic function
+//union of unsorted arrays via c++stl map 
+int doUnion(int a[], int n, int b[], int m)  {
+    //code here
+    int c=0;
+     // Defining map container mp
+    map<int, int> mp; 
+   
+    // Inserting array elements in mp
+    for (int i = 0; i < n; i++)
+        mp.insert({ a[i], i }); 
+   
+    for (int i = 0; i < m; i++)
+        mp.insert({ b[i], i });
+    for (auto itr = mp.begin(); itr != mp.end(); itr++){
+        c++;
     }
-    
-};
-	return 0; 
+    return c;
 }
